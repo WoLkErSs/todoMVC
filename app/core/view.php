@@ -9,13 +9,10 @@
 			include  ROOT_PATH . "app/views/{$this -> entity}/$file_name.php";
 		}
 
-		public function redirect() {
-			header("Location: http://todolist.ruby/todolists/index");
+		public function redirect($url) {
+			header("Location: $url");
 		}
 
-		public function change() {
-			
-		}
 	}
 
  ?>

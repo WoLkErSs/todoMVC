@@ -40,6 +40,7 @@
 			$model -> change($id, $name);
 			include ROOT_PATH . 'app/core/view.php';
 			$this -> view = new View();
+			$this -> view -> redirect('http://todolist.ruby/todolists/index');
 			
 
 		}
