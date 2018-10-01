@@ -2,8 +2,7 @@ body {
 	min-height: 650px;
 	height: 100%;
 	background: linear-gradient(#CDCDCD, #D8B032, darkorange);
-	background-repeat: no-repeat;
-	
+	background-repeat: no-repeat;	
 }
 
 .fs-20{
@@ -51,6 +50,14 @@ body {
 
 .mb-80 {
 	margin-bottom: 70px;
+}
+
+.h-25 {
+	height: 30px;
+}
+
+.lol {
+	width: 40px;
 }
 
 .p-3-0{

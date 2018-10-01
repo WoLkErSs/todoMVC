@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>to do list</title>
-	<link rel="stylesheet" href="../node_modules/bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="/node_modules/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/app/assets/css/style.css">
 	<script src="../node_modules/jquery/dist/jquery.js"></script>
 	</head>
 <body>
@@ -36,12 +36,12 @@
 				foreach ($data as $todolists) {
 					$id = $todolists['id'];
 					$name = $todolists['name'];
-					include ROOT_PATH . 'app/views/partials/categories.php';
+					include ROOT_PATH . 'app/views/todolists/partials/categories.php';
 				}
 			 ?>
 	</main>
 	<footer class="text-center ">@ Ruby Garage</footer>
-<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script src="index.js"></script>
+<script src="/node_modules/bootstrap/js/bootstrap.js"></script>
+<script src="/app/assets/index.js"></script>
 </body>
 </html>

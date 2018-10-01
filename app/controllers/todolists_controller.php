@@ -17,7 +17,7 @@
 
 			include ROOT_PATH . 'app/core/view.php';
 			$this -> view = new View();
-			$this -> view -> redirect();
+			$this -> view -> redirect('http://todolist.ruby/todolists/index');
 		}
 
 		public function drop() {
@@ -29,19 +29,24 @@
 			
 			include ROOT_PATH . 'app/core/view.php';
 			$this -> view = new View();
-			$this -> view -> redirect();
+			$this -> view -> redirect('http://todolist.ruby/todolists/index');
 		}
 
-		public function change($id, $name) {
+		public function update() {
 			$id = $_POST['id'];
-			$name = $_POST['title'];
+			$title = $_POST['title'];
 			include ROOT_PATH . 'app/models/todolists_model.php';
 			$model = new TodolistsModel;
-			$model -> change($id, $name);
+			$model -> update($id, $title);
 			include ROOT_PATH . 'app/core/view.php';
 			$this -> view = new View();
 			$this -> view -> redirect('http://todolist.ruby/todolists/index');
-			
+		}
+
+		public function n_task() {
+			$title = $_POST['title'];
+
+			include ROOT_PATH . 'app/models/todolists_model.php';
 
 		}
 	}
