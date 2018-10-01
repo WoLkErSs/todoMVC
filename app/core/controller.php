@@ -3,8 +3,9 @@
 
 		public $model;
 		public $view;
-		function __construct() {
-			$this -> view = new View();
+		function __construct($contr_class) {
+			include ROOT_PATH . 'app/core/view.php';
+			$this -> view = new View($contr_class);
 		}
 	}	
  ?>
