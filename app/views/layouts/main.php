@@ -8,7 +8,7 @@
 	<script src="../node_modules/jquery/dist/jquery.js"></script>
 	</head>
 <body>
-<?php include  ROOT_PATH . "app/views/$entity/$file_name.php";?>
+	<?php include  ROOT_PATH . "app/views/$entity/$file_name.php";?>
 <script src="/node_modules/bootstrap/js/bootstrap.js"></script>
 <script src="/app/assets/index.js"></script>
 </body>

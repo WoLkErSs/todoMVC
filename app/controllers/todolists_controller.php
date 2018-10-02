@@ -7,7 +7,7 @@
 
 		public function index() {
 			$data = $this -> todolist_model() -> all();
-			$this -> view -> render('all', $data, 'all'); 
+			$this -> view -> render('all', $data); 
 		}
 
 		public function create() {

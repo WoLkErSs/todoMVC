@@ -8,7 +8,7 @@
 
 		public function render($file_name, $data = [], $layout = self::DEFAULT_LAYOUT_NAME) {
 			$entity = $this -> entity;
-			include  ROOT_PATH . "app/views/layouts/{$layout}.php";
+			include  ROOT_PATH . "app/views/layouts/$layout.php";
 		}
 
 		public function redirect($url) {
