@@ -1,10 +1,13 @@
 $('document').ready(function() {
+	var close = $('.close_title');
 	var update = $('.update');
-	var title = $('.todo-title');
-	var todo_title = $('.todo_title');
 	update.click(function() {
-		$(todo_title).show();
-		$(title).hide();
-		$(this).hide();
+		$(this).parents().parent().prev().find("div.todo-title").hide();
+		$(this).parent().parent().prev().find("form.todo_title").show();
+	})
+	close.click(function() {
+		$(this).parents().prev().show();
+		$(this).parent().hide();
+
 	})
 })

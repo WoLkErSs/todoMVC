@@ -24,6 +24,11 @@ body {
 .ml-10{
 	margin-left: 10px;
 }
+
+.mt-5 {
+	margin-top: 5px;
+}
+
 .mt-10 {
 	margin-top: 10px;
 }
@@ -76,16 +81,16 @@ body {
 	padding: 10px;
 }
 
+.pt-7 {
+	padding-top: 7px;
+}
+
 .pt-5 {
 	padding-top: 5px;
 }
 
 .pt-15 {
 	padding-top: 15px;
-}
-
-.pl-10 {
-	padding-left: 10px;
 }
 
 .pt-70 {
@@ -125,20 +130,44 @@ body {
 }
 
 .main_icon > .vbar {
+}
+
+.line > .vbar {
 	padding: 0px;
-	border-right: 1px solid #F0F0F0;
-	height: 25px;
+	border-right: 1px solid #B1B2A2;
+	height: 30px;
+}
+
+.line{
+	line-height: 15px;
 }
 
 .bnt_plus{
 	color: #F0F0F0;
 }
 
-.changes_of_line > .glyphicon-pencil, .changes_of_line > .glyphicon-trash{
-	font-size: 19px;
+.chevrons {
 	display: inline-block;
 }
-.changes_of_line > .vbar{
+
+.line > .glyphicon-pencil, .line > .glyphicon-trash{
+	font-size: 22px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.glyphicon-chevron-up, .glyphicon-chevron-down{
+	font-size: 16px;
+	margin:0 auto;
+	display: inline-block;
+}
+
+.task_control{
+	display: none;
+	font-size: 15px;
+}
+
+.task_control > .vbar{
 	border: 1px solid #B1B2A2;
 	height: 22px;
 	size:3px;
@@ -157,19 +186,10 @@ body {
 	background: transparent;
 }
 
-.glyphicon-chevron-up, .glyphicon-chevron-down{
-	font-size: 11px;
-}
-
 .glyphicon-chevron-up{
 	border-bottom: 1px solid #B1B2A2;
 }
 
-.move{
-	display: inline-block;
-	font-size: 1px;
-	float: left;
-}
 
 .row_title_line{
 	background: linear-gradient(#547FB4, #335791);
@@ -177,6 +197,10 @@ body {
 
 .row_title{
 	line-height: 45px;
+}
+
+.trash, .pencil {
+	font-size: 22px;
 }
 
 .row:hover {
@@ -234,6 +258,14 @@ body {
   cursor: pointer;
 }
 
+.input_area:hover .task_control {
+  display: block;
+}
+
+.input_area:hover .contents {
+  font-size: 20px;
+}
+
 .check_boxs {
 	padding-top: 10px;
 	transform: scale(1.5);
@@ -254,7 +286,6 @@ body {
 	color: ;
 	padding: 10px;
 	color: #F0F0F0;
-
 }
 
 .btn-add-todo > span {
@@ -263,6 +294,7 @@ body {
 	vertical-align: top;
 	word-spacing: 0px;
 }
+
 .todo-title{
 	background-color: transparent;
 	border: none;
@@ -273,6 +305,7 @@ body {
 	width: 100%;
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 footer{
 	vertical-align: text-bottom;
 }

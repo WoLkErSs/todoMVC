@@ -1,13 +1,15 @@
 <?php 
 	class TodolistsController extends Controller {
+
 		private function todolist_model() {
 			include_once ROOT_PATH . 'app/models/todolists_model.php';
 			return new TodolistsModel;
 		}
 
 		public function index() {
+			$data_tasks = $this -> todolist_model() -> have_tasks();
 			$data = $this -> todolist_model() -> all();
-			$this -> view -> render('all', $data); 
+			$this -> view -> render('all', $data, $data_tasks); 
 		}
 
 		public function create() {
@@ -27,8 +29,10 @@
 			$this -> view -> redirect('http://todolist.ruby/todolists/index');
 		}
 
-		public function n_task() {
-			$title = $_POST['title'];
-			$this -> todolist_model();
+		public function new_task() {
+			$task = $_POST['new_task_name'];
+			$id = $_POST['id'];
+			$this -> todolist_model() -> new_task($task, $id);
+			$this -> view -> redirect('http://todolist.ruby/todolists/index');
 		}
 	}

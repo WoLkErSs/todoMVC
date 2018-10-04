@@ -6,7 +6,7 @@
 			$this -> entity = $entity;
 		}
 
-		public function render($file_name, $data = [], $layout = self::DEFAULT_LAYOUT_NAME) {
+		public function render($file_name, $data = [], $data_tasks =[], $layout = self::DEFAULT_LAYOUT_NAME) {
 			$entity = $this -> entity;
 			include  ROOT_PATH . "app/views/layouts/$layout.php";
 		}

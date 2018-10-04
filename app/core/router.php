@@ -15,7 +15,7 @@
       if ($this -> request == '/') {
         $this -> controller_name = self::DEFAULT_CONTROLLER;
         $this -> action_name = self::DEFAULT_ACTION;
-      }elseif ($count == 2 || $count == 3 and $explode_arrya[1] == 'todolists' and $explode_arrya[2] == '') {
+      }elseif ($count >= 2 and $explode_arrya[1] == 'todolists' and $explode_arrya[2] == '') {
         $this -> controller_name = $explode_arrya[1];
         $this -> action_name = self::DEFAULT_ACTION;
       }elseif ($explode_arrya[1] != 'todolists' and $count == 2) {
