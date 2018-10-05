@@ -1,12 +1,6 @@
 <?php
-	class TodolistsModel {
-		private $connect;
+	class TodolistsModel extends Model {
 		const DEFAULT_TODOLIST_NAME = 'New Todo List';
-
-
-		public function __construct() {
-			$this -> connect = new mysqli('localhost','root','','to_do_list');
-			}
 
 		public function create() {
 			$const = self::DEFAULT_TODOLIST_NAME;
@@ -14,13 +8,8 @@
 			$this -> connect -> query($query);
 		}
 
-		public function new_task($new_task_name, $id) {
-			$query = "INSERT INTO tasks (task, status, todo_id) VALUES('$new_task_name','performend' , $id);";
-			$this -> connect -> query($query);
-		}
-
-		public function have_tasks() {
-			$query = "SELECT * FROM tasks;";
+		private function have_tasks($todo_id) {
+			$query = "SELECT * FROM tasks WHERE todo_id ='$todo_id';";
 			$result = $this -> connect -> query($query);
 			$tasks_array = [];
 			while ($row = mysqli_fetch_assoc($result)) {
@@ -32,11 +21,16 @@
 		public function all() {
 			$query = "SELECT * FROM to_do_lists;";
 			$result = $this -> connect -> query($query);
-			$final_array = [];
+			$todolists = [];
+			$todolists_with_tasks = [];
 			while ($row = mysqli_fetch_assoc($result)) {
-				array_push($final_array, $row);
+				array_push($todolists, $row);
 			}
-			return $final_array;		
+			foreach ($todolists as $todolist) {
+				$todolist['tasks'] = $this -> have_tasks($todolist['id']);
+				array_push($todolists_with_tasks, $todolist);
+			}
+			return $todolists_with_tasks;		
 		}
 
 		public function drop($id) {

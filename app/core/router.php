@@ -27,7 +27,8 @@
       }
       $controller_name = lcfirst($this -> controller_name).'_controller';
       if (file_exists("app/controllers/$controller_name.php")) {
-        require "app/core/controller.php";
+        require_once "app/core/controller.php";
+        require_once "app/core/model.php";
         require "app/controllers/$controller_name.php";
         $this -> controller = ucfirst($this -> controller_name).'Controller';
         $controller = new $this -> controller($this -> controller_name);

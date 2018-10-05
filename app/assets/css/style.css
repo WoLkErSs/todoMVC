@@ -117,6 +117,11 @@ body {
 .todo_title:hover{
 	border: 1px solid white;
 }
+
+.todo_title {
+	border: none;
+}
+
 .main_icon{
 	display: none;
 	float: right;
@@ -130,6 +135,9 @@ body {
 }
 
 .main_icon > .vbar {
+	padding: 0px;
+	border-right: 1px solid #CFCFCF;
+	height: 25px;
 }
 
 .line > .vbar {

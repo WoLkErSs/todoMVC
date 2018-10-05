@@ -1,8 +1,10 @@
 <?php 
-	class Moledl {
+	class Model {
+		
+		protected $connect;
 
-		public function get_data() {
-
-		}
+		public function __construct() {
+			$this -> connect = new mysqli('localhost','root','','to_do_list');
+			}
 	}
  ?>

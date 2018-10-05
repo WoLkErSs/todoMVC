@@ -33,9 +33,10 @@
 			</div>
 		</div>
 			<?php 
-				foreach ($data as $todolists) {
-					$id = $todolists['id'];
-					$name = $todolists['name'];
+				foreach ($data['todolists'] as $todolist) {
+					$id = $todolist['id'];
+					$name = $todolist['name'];
+					$tasks = $todolist['tasks'];
 					include ROOT_PATH . 'app/views/todolists/partials/categories.php';
 				}
 			 ?>
