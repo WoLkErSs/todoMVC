@@ -17,4 +17,18 @@
 			$this -> tasks_model() -> drop($_POST['id']);
 			$this -> view -> redirect('http://todolist.ruby/todolists/index');
 		}
+
+		public function change_status() {
+			$id = $_POST['task_id'];
+			$status = $_POST['status'];
+			$this -> tasks_model() -> change_status($id, $status);
+			$this -> view -> redirect('http://todolist.ruby/');
+		}
+
+		public function update() {
+			$id = $_POST['id'];
+			$name = $_POST['name'];
+			$this -> tasks_model() -> task_update($id, $name);
+			$this -> view -> redirect('http://todolist.ruby/');
+		}
 	}

@@ -9,7 +9,7 @@
 					<div class="todo-title">
 					<?php echo $name;?>
 					</div>
-					<form action="update" method="post" id="lol" hidden class="todo_title mt-10" style="border: none;">
+					<form action="update" method="post" hidden class="todo_title mt-10" style="border: none;">
 						<input type="hidden" name="id" value='<?=$id?>'>
 						<input type="text" name="title">
 						<input type="submit" class="btn btn-success m-0 p-0 h-25 w-40" value="save">
@@ -34,7 +34,7 @@
 				</div>
 				<div class="m-0 col-xs-11">
 					<form action="/tasks/new" method="post" class="add_zone mr-15 mt-12">
-						<input id="titleOfTask" class="pl-10" placeholder="Start typing here to create a task..." name="new_task_name">
+						<input class="pl-10"  placeholder="Start typing here to create a task..." name="new_task_name">
 						<input type="hidden" name="id" value='<?=$id?>'>
 						<button type="submit" class="pull-right add_btn btn btn-success text-center">Add Task</button>
 					</form>

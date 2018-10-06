@@ -61,10 +61,6 @@ body {
 	height: 30px;
 }
 
-.lol {
-	width: 40px;
-}
-
 .p-3-0{
 	padding: 3px 0px 0px 0px;
 }
@@ -99,6 +95,10 @@ body {
 
 .pl-10 {
 	padding-left: 10px;
+}                                                                                               
+
+.d-inline {
+	display: inline-block;
 }
 
 .glyphicon {
@@ -154,14 +154,17 @@ body {
 	color: #F0F0F0;
 }
 
-.chevrons {
-	display: inline-block;
+.line_through {
+	text-decoration: line-through;
 }
 
-.line > .glyphicon-pencil, .line > .glyphicon-trash{
-	font-size: 22px;
-	display: inline-block;
+.line > .glyphicon-pencil, .trash_task_form{
+	font-size: 23px;
 	vertical-align: top;
+}
+
+.trash_task{
+	font-size: 23px;
 }
 
 .glyphicon-chevron-up, .glyphicon-chevron-down{
@@ -259,6 +262,7 @@ body {
 	color: #B1A595;
 	font-size: 19px;
 	background-color: white;
+	line-height: 40px;
 }
 
 .input_area:hover {
@@ -275,7 +279,6 @@ body {
 }
 
 .check_boxs {
-	padding-top: 10px;
 	transform: scale(1.5);
 	display: inline-block;
 	vertical-align: middle; 
@@ -294,6 +297,13 @@ body {
 	color: ;
 	padding: 10px;
 	color: #F0F0F0;
+}
+
+.task_name {
+	height: 30px;
+	width: 400px;
+	border: 1px solid #B1B2A2;
+	background-color: #FCFED5;
 }
 
 .btn-add-todo > span {

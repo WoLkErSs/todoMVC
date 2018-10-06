@@ -8,7 +8,6 @@
 
 		public function error405() {
 			echo 'Error 405 method does not exists'.'<br>';
-			var_dump($_GET['id']).'<br>';
 		}
 	}
  ?>
