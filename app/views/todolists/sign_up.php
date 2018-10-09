@@ -1,7 +1,7 @@
 	<div class="col-xs-4"></div>
 	<div class="col-xs-4">
 		<h2 class="text-center">SIGN UP</h2>
-		<form action="">
+		<form action="sign_up" method="post">
 		    <div class="form-group">
 		      <label for="usr">login:</label>
 		      <input type="text" class="form-control m-0 text-center" id="usr" name="login">
@@ -12,7 +12,7 @@
 		    </div>
 		    <div class="form-group">
 		      <label for="pwd">Password:</label>
-		      <input type="password" class="form-control m-0 text-center" id="pwd" name="password">
+		      <input type="password" class="form-control m-0 text-center" id="pwd" name="password_1">
 		    </div>
 		    <div class="form-group">
 		      <label for="pwd">Confirm Password:</label>

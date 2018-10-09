@@ -2,7 +2,7 @@
 	<div class="row">
 	    <div class="col-xs-0 col-sm-1 col-md-2 col-lg-3"></div>
 	    <div id="list" class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
-			<div class="row row_title_line tittle-name">
+			<div class="row row_title_line background tittle-name">
 				<div class=" col-xs-1  mt-10 glyphicon glyphicon-calendar">
 				</div>
 				<div class="par m-0 col-xs-8">

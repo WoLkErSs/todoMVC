@@ -5,7 +5,7 @@ body {
 	background-repeat: no-repeat;	
 }
 
-.fs-20{
+h2 {
 	font-size:20px;
 }
 
@@ -13,15 +13,15 @@ body {
 	margin: 0 auto;
 }
 
-.m-5{
+.m-5 {
 	margin: 5px;
 }
 
-.m-15-0{
+.m-15-0 {
 	margin: 15px 0;
 }
 
-.ml-10{
+.ml-10 {
 	margin-left: 10px;
 }
 
@@ -41,11 +41,11 @@ body {
 	margin-right: 15px;
 }
 
-.m-50-0{
+.m-50-0 {
 	margin: 50px 0;
 }
 
-.mb-50{
+.mb-50 {
 	margin-bottom: 50px;
 }
 
@@ -61,7 +61,7 @@ body {
 	height: 30px;
 }
 
-.p-3-0{
+.p-3-0 {
 	padding: 3px 0px 0px 0px;
 }
 
@@ -69,7 +69,7 @@ body {
 	padding: 0px;
 }
 
-.p-5{
+.p-5 {
 	padding: 5px;
 }
 
@@ -97,6 +97,10 @@ body {
 	padding-top: 70px;
 }
 
+.pr-100 {
+	padding-right: 100px;
+}
+
 .pl-10 {
 	padding-left: 10px;
 }                                                                                               
@@ -117,11 +121,11 @@ body {
 	margin: 10px auto;
 }
 
-.inputed_text{
+.inputed_text {
 	overflow: hidden;
 }
 
-.todo_title:hover{
+.todo_title:hover {
 	border: 1px solid white;
 }
 
@@ -129,14 +133,14 @@ body {
 	border: none;
 }
 
-.main_icon{
+.main_icon {
 	display: none;
 	float: right;
 	margin-top: 7px;
 	padding-right: 30px;
 }
 
-.row_title_line:hover .main_icon{
+.row_title_line:hover .main_icon {
 	display: inline-block;
 	color: #F0F0F0;
 }
@@ -153,11 +157,11 @@ body {
 	height: 30px;
 }
 
-.line{
+.line {
 	line-height: 15px;
 }
 
-.bnt_plus{
+.bnt_plus {
 	color: #F0F0F0;
 }
 
@@ -165,27 +169,27 @@ body {
 	text-decoration: line-through;
 }
 
-.line > .glyphicon-pencil, .trash_task_form{
+.line > .glyphicon-pencil, .trash_task_form {
 	font-size: 23px;
 	vertical-align: top;
 }
 
-.trash_task{
+.trash_task {
 	font-size: 23px;
 }
 
-.glyphicon-chevron-up, .glyphicon-chevron-down{
+.glyphicon-chevron-up, .glyphicon-chevron-down {
 	font-size: 16px;
 	margin:0 auto;
 	display: inline-block;
 }
 
-.task_control{
+.task_control {
 	display: none;
 	font-size: 15px;
 }
 
-.task_control > .vbar{
+.task_control > .vbar {
 	border: 1px solid #B1B2A2;
 	height: 22px;
 	size:3px;
@@ -193,7 +197,7 @@ body {
 	vertical-align: bottom;
 }
 
-.pencil , .trash , .vbar{
+.pencil , .trash , .vbar {
 	display: inline-block;
 	margin:0 auto;
 }
@@ -204,16 +208,11 @@ body {
 	background: transparent;
 }
 
-.glyphicon-chevron-up{
+.glyphicon-chevron-up {
 	border-bottom: 1px solid #B1B2A2;
 }
 
-
-.row_title_line{
-	background: linear-gradient(#547FB4, #335791);
-}
-
-.row_title{
+.row_title {
 	line-height: 45px;
 }
 
@@ -296,8 +295,11 @@ body {
 	border-right:1px solid #B1B2A2;
 }
 
-.btn-add-todo {
+.background {
 	background: linear-gradient(#547FB4, #335791);
+}
+
+.btn-add-todo {
 	font-weight: 900;
 	font-size: 20px;
 	font-family: Arial, sans-serif;
