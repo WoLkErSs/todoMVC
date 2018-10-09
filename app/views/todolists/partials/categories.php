@@ -46,6 +46,7 @@
 					$tasks_id = $task['id'];
 					$task_name = $task['task'];
 					$task_status = $task['status'];
+					$task_priority = $task['priority'];
 						
 					include ROOT_PATH . 'app/views/todolists/tasks.php';
 				}

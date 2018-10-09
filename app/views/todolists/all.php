@@ -13,6 +13,7 @@
 			<div class="row">
 				<div class="col-xs-1"></div>
 				<div class="col-xs-10 text-center pt-70">
+					<a href="logout.php">Logout</a>
 					<h1 class="m-0 p-0"><b>SIMPLE TODO LISTS</b></h1>
 					<h2 class="fs-20 m-0 p-0 mb-80">FROM RUBY GARAGE</h2>
 				</div>

@@ -9,7 +9,9 @@
 		public function new() {
 			$task = $_POST['new_task_name'];
 			$id = $_POST['id'];
-			$this -> tasks_model() -> new($task, $id);
+			if ($task) {
+				$this -> tasks_model() -> new($task, $id);
+			}
 			$this -> view -> redirect('http://todolist.ruby/todolists/index');
 		}
 
@@ -28,7 +30,21 @@
 		public function update() {
 			$id = $_POST['id'];
 			$name = $_POST['name'];
-			$this -> tasks_model() -> task_update($id, $name);
+			$this -> tasks_model() -> update($id, $name);
+			$this -> view -> redirect('http://todolist.ruby/');
+		}
+
+		public function moveUp() {
+			$priority = $_POST['priority'];
+			$id = $_POST['id'];
+			$this -> tasks_model() -> moveUp($id, $priority);
+			$this -> view -> redirect('http://todolist.ruby/');
+		}
+
+		public function moveDown() {
+			$id = $_POST['id'];
+			$priority = $_POST['priority'];
+			$this -> tasks_model() -> moveDown($id, $priority);
 			$this -> view -> redirect('http://todolist.ruby/');
 		}
 	}

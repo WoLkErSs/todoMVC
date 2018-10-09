@@ -33,6 +33,14 @@ $('document').ready(function() {
 		$(this).parent().prev().show();
 
 	})
+
+	$('.glyphicon-chevron-up').click(function() {
+		$(this).parents('form').submit();
+	})
+
+	$('.glyphicon-chevron-down').click(function() {
+		$(this).parents('form').submit();
+	})
 })
 	/*
 	sign.each(function(){

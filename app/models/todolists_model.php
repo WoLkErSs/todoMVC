@@ -9,8 +9,9 @@
 		}
 
 		private function have_tasks($todo_id) {
-			$query = "SELECT * FROM tasks WHERE todo_id ='$todo_id';";
+			$query = "SELECT * FROM tasks WHERE todo_id ='$todo_id' ORDER BY priority;";
 			$result = $this -> connect -> query($query);
+
 			$tasks_array = [];
 			while ($row = mysqli_fetch_assoc($result)) {
 				array_push($tasks_array, $row);
@@ -41,7 +42,17 @@
 		public function update($id, $title) {
 			$query = "UPDATE `to_do_lists` SET name = '$title' WHERE id = $id;";
 			$this -> connect -> query($query);
-		}	
+		}
+
+		public function login($login, $password) {
+			$query = "SELECT * FROM `users`/* WHERE login=$login AND password=$password*/;";
+			$result = $this -> connect -> query($query);
+			$data = [];
+			while ($row = mysqli_fetch_assoc($result)) {
+				array_push($data, $row);
+			}
+			return $data;
+		}
 	}
 
 

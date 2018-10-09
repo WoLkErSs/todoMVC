@@ -26,8 +26,16 @@
 	<div class="m-0 task_control">
 		<div class="line">
 			<div class="chevrons d-inline ml-10">
-				<span class="glyphicon glyphicon-chevron-up"></span><br>
-				<span class="p-3-0 glyphicon glyphicon-chevron-down"></span>
+				<form action="/tasks/moveUp" method="post">
+					<input type="hidden" name="id" value="<?=$tasks_id?>">
+					<input type="hidden" name="priority" value="<?=$task_priority?>">
+					<span class="glyphicon glyphicon-chevron-up"></span>
+				</form>
+				<form action="/tasks/moveDown" method="post">
+					<input type="hidden" name="id" value="<?=$tasks_id?>">
+					<input type="hidden" name="priority" value="<?=$task_priority?>">
+					<span class="glyphicon glyphicon-chevron-down"></span>
+				</form>
 			</div>
 			<div class="vbar m-5"></div>
 			<div class="glyphicon pencil glyphicon-pencil pt-5 task_update"></div>

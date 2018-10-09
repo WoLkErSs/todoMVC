@@ -77,6 +77,10 @@ body {
 	padding: 10px;
 }
 
+.pt80 {
+	padding-top: 80%;
+}
+
 .pt-7 {
 	padding-top: 7px;
 }
@@ -99,6 +103,9 @@ body {
 
 .d-inline {
 	display: inline-block;
+}
+
+.form-control {
 }
 
 .glyphicon {

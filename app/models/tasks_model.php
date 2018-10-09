@@ -22,8 +22,28 @@
 			}
 		}
 		
-		public function task_update($id, $name) {
+		public function update($id, $name) {
 				$query = "UPDATE tasks SET task = '$name' WHERE id = '$id';";
 				$this -> connect -> query($query);
+		}
+
+		public function moveUp($id, $prior) {
+			if ($prior == 0) {
+				$query = "UPDATE tasks SET priority=$id WHERE id=$id;";
+			}else {
+				$query = "UPDATE tasks SET priority=if(priority=$prior,$prior-1,$prior) WHERE priority IN ($prior, $prior-1)" ;
+			}
+				$this -> connect -> query($query);
+		}
+
+		public function moveDown($id, $prior) {
+			if ($prior == 0) {
+				$query = "UPDATE tasks SET priority=$id WHERE id=$id;";
+
+			}else {
+				$query = "update tasks set priority=if(priority=$prior,$prior+1,$prior) where priority in ($prior, $prior+1);";
+			}
+			$this -> connect -> query($query);
+
 		}
 	}

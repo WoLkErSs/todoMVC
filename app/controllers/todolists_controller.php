@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	class TodolistsController extends Controller {
 
 		private function todolist_model() {
@@ -7,8 +8,12 @@
 		}
 
 		public function index() {
-			$data = $this -> todolist_model() -> all();
-			$this -> view -> render('all', ['todolists' => $data]); 
+			if($_SESSION['is_logined'] == 0) {
+				$this -> view -> render('login'); 
+			}else {
+				$data = $this -> todolist_model() -> all();
+				$this -> view -> render('all', ['todolists' => $data]); 
+			}
 		}
 
 		public function create() {
@@ -26,5 +31,22 @@
 			$title = $_POST['title'];
 			$this -> todolist_model() -> update($id, $title);
 			$this -> view -> redirect('http://todolist.ruby/todolists/index');
+		}
+
+		public function login() {
+			$password = $_POST['password'];
+			$login = $_POST['login'];
+			$data = $this -> todolist_model() -> login($login, $password);
+			if ($data) {
+				$_SESSION['is_logined'] = 1;
+			}
+				$this -> view -> redirect('http://todolist.ruby/');
+		}
+
+		public function registration() {
+			$password = $_POST['password'];
+			$login = $_POST['login'];
+			$pass_2 = $_POST['password_2'];
+			$email = $_POST['email'];
 		}
 	}
