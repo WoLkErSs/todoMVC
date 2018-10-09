@@ -9,7 +9,7 @@
 
 		public function index() {
 			if($_SESSION['is_logined'] == 0) {
-				$this -> view -> render('login'); 
+				$this -> view -> render('sign_in'); 
 			}else {
 				$data = $this -> todolist_model() -> all();
 				$this -> view -> render('all', ['todolists' => $data]); 
@@ -33,7 +33,7 @@
 			$this -> view -> redirect('http://todolist.ruby/todolists/index');
 		}
 
-		public function login() {
+		public function sign_in() {
 			$password = $_POST['password'];
 			$login = $_POST['login'];
 			$data = $this -> todolist_model() -> login($login, $password);

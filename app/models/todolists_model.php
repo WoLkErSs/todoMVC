@@ -45,12 +45,8 @@
 		}
 
 		public function login($login, $password) {
-			$query = "SELECT * FROM `users`/* WHERE login=$login AND password=$password*/;";
-			$result = $this -> connect -> query($query);
-			$data = [];
-			while ($row = mysqli_fetch_assoc($result)) {
-				array_push($data, $row);
-			}
+			$query = "SELECT EXISTS (SELECT * FROM `users` WHERE login=$login AND password=$password);";
+			$data = $this -> connect -> query($query);
 			return $data;
 		}
 	}
