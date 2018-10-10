@@ -1,11 +1,18 @@
 <?php 
 	
 	class UsersModel extends Model {
-		
+
 		public function sign_in($login, $password) {
-			$query = "SELECT EXISTS (SELECT * FROM `users` WHERE login='$login' AND password='$password');";
-			$data = $this -> connect -> query($query);
-			return $data;
+			$query = "SELECT * FROM `users` WHERE login='$login' AND password='$password';";
+			$result = $this -> connect -> query($query);
+			$clients = [];
+			while ($row = mysqli_fetch_assoc($result)) {
+				array_push($clients, $row);
+			}
+			foreach ($clients as $user) {
+			}
+			$user_id = $user['id'];
+			return $user_id;
 		}
 
 		public function sign_up($password, $login, $email) {

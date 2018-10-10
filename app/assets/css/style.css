@@ -109,9 +109,6 @@ h2 {
 	display: inline-block;
 }
 
-.form-control {
-}
-
 .glyphicon {
 	font-size: 25px;
 }
@@ -210,6 +207,10 @@ h2 {
 
 .glyphicon-chevron-up {
 	border-bottom: 1px solid #B1B2A2;
+}
+
+.glyphicon-chevron-down {
+	margin-top: 2px;
 }
 
 .row_title {
