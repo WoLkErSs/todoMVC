@@ -1,0 +1,51 @@
+CREATE DATABASE IF NOT EXISTS `ruby_garage`;USE `ruby_garage`; 
+
+CREATE TABLE IF NOT EXISTS `projects`(id MEDIUMINT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(20));
+
+INSERT INTO `projects` VALUES(NULL,'Household chores'), (NULL,'Studies'), (NULL,'Entertaiment'), (NULL,'Sport'), (NULL,'Hygiene'), (NULL,'Show'), (NULL,'Car');
+
+ CREATE TABLE `tasks`(id MEDIUMINT AUTO_INCREMENT PRIMARY KEY,task VARCHAR(255), status BOOLEAN, project_id MEDIUMINT NOT NULL, FOREIGN KEY (project_id) REFERENCES `projects`(id) ON UPDATE CASCADE ON DELETE CASCADE);
+
+INSERT INTO `tasks` VALUES(NULL,'wash up','done',(SELECT id FROM `projects` WHERE `name` = 'Hygiene'));
+INSERT INTO `tasks` VALUES(NULL,'heircut','performend',(SELECT id FROM `projects` WHERE `name` = 'Hygiene'));
+INSERT INTO `tasks` VALUES(NULL,'cleanup','done',(SELECT id FROM `projects` WHERE `name` = 'Household chores'));
+INSERT INTO `tasks` VALUES(NULL,'ironing','performend',(SELECT id FROM `projects` WHERE `name` = 'Household chores'));
+INSERT INTO `tasks` VALUES(NULL,'reading','deferred',(SELECT id FROM `projects` WHERE `name` = 'Studies'));
+INSERT INTO `tasks` VALUES(NULL,'sleep','done',(SELECT id FROM `projects` WHERE `name` = 'Hygiene'));
+INSERT INTO `tasks` VALUES(NULL,'rest','deferred',(SELECT id FROM `projects` WHERE `name` = 'Entertaiment'));
+INSERT INTO `tasks` VALUES(NULL,'conversation','done',(SELECT id FROM `projects` WHERE `name` = 'Studies'));
+INSERT INTO `tasks` VALUES(NULL,'buy','performend',(SELECT id FROM `projects` WHERE `name` = 'Household chores'));
+INSERT INTO `tasks` VALUES(NULL,'exem preparation','deferred',(SELECT id FROM `projects` WHERE `name` = 'Studies'));
+INSERT INTO `tasks` VALUES(NULL,'write a essay','done',(SELECT id FROM `projects` WHERE `name` = 'Studies'));
+INSERT INTO `tasks` VALUES(NULL,'get shaved','performend',(SELECT id FROM `projects` WHERE `name` = 'Hygiene'));
+INSERT INTO `tasks` VALUES(NULL,'cooking','done',(SELECT id FROM `projects` WHERE `name` = 'Household chores'));
+INSERT INTO `tasks` VALUES(NULL,'go fishing','deferred',(SELECT id FROM `projects` WHERE `name` = 'Entertaiment'));
+INSERT INTO `tasks` VALUES(NULL,'fix the door','deferred',(SELECT id FROM `projects` WHERE `name` = 'Household chores'));
+INSERT INTO `tasks` VALUES(NULL,'play computer game','done',(SELECT id FROM `projects` WHERE `name` = 'Entertaiment'));
+INSERT INTO `tasks` VALUES(NULL,'learn MySql','performend',(SELECT id FROM `projects` WHERE `name` = 'Studies'));
+INSERT INTO `tasks` VALUES(NULL,'clean the room','deferred',(SELECT id FROM `projects` WHERE `name` = 'Household chores'));
+INSERT INTO `tasks` VALUES(NULL,'running','done',(SELECT id FROM `projects` WHERE `name` = 'Sport'));
+INSERT INTO `tasks` VALUES(NULL,'check post','done',(SELECT id FROM `projects` WHERE `name` = 'Post'));
+INSERT INTO `tasks` VALUES(NULL,'meet with friends','deferred');
+
+
+1)SELECT DISTINCT `status` FROM `tasks`  ORDER BY `status` ASC;
+
+2)SELECT projects.name,COUNT(tasks.project_id) 'amount_tasks_in_project' FROM `tasks` INNER JOIN `projects` ON projects.id=tasks.project_id GROUP BY projects.name ORDER BY COUNT(tasks.project_id) DESC;
+
+3)SELECT projects.name,COUNT(tasks.project_id) 'amount_tasks_in_project' FROM `tasks` INNER JOIN `projects` ON projects.id=tasks.project_id GROUP BY projects.name ORDER BY name;
+
+4)SELECT tasks.name FROM `tasks` INNER JOIN `projects` ON projects.id=tasks.project_id WHERE tasks.name LIKE 'C%' GROUP BY name;
+
+5)SELECT projects.name,COUNT(tasks.project_id) 'amount_tasks_in_project' FROM `projects` LEFT JOIN `tasks` ON projects.id=tasks.project_id WHERE projects.name LIKE '%a%' GROUP BY `name`;
+
+6)SELECT DISTINCT name FROM `tasks` WHERE `name` IN (SELECT name FROM `tasks` GROUP BY name HAVING count(*)>1)  ORDER BY name;
+
+  SELECT name,COUNT(name) FROM tasks GROUP BY name HAVING COUNT(name)> 1 ORDER BY name;
+
+7)SELECT name,status FROM tasks GROUP BY name HAVING COUNT(status)> 1 AND COUNT(name)>1 ORDER BY COUNT(name) DESC;
+
+8)SELECT projects.name,COUNT(tasks.status) FROM projects INNER JOIN tasks ON tasks.project_id=projects.id WHERE tasks.status='done' GROUP BY projects.name HAVING COUNT(tasks.status)>3;
+
+
+
