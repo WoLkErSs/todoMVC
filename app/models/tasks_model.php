@@ -3,7 +3,14 @@
 		
 
 		public function new($new_task_name, $id) {
-			$query = "INSERT INTO tasks (task, status, todo_id) VALUES('$new_task_name', 0, $id);";
+			$query_0 = "SELECT MAX(priority) as `max` FROM tasks;";
+			$result = $this -> connect -> query($query_0);
+			$max = [];
+			while ($row = mysqli_fetch_assoc($result)) {
+				array_push($max, $row);
+			}
+			$priority = ($max[0]['max']+1);
+			$query = "INSERT INTO tasks (task, status, todo_id, priority) VALUES('$new_task_name', 0, $id, $priority);";
 			$this -> connect -> query($query);
 		}
 
@@ -28,21 +35,12 @@
 		}
 
 		public function moveUp($id, $prior) {
-			if ($prior == 0) {
-				$query = "UPDATE tasks SET priority=$id WHERE id=$id;";
-			}else {
-				$query = "UPDATE tasks SET priority=if(priority=$prior,$prior-1,$prior) WHERE priority IN ($prior, $prior-1)" ;
-			}
-				$this -> connect -> query($query);
+			$query = "UPDATE tasks SET priority=if(priority=$prior,$prior-1,$prior) WHERE priority IN ($prior, $prior-1)" ;
+			$this -> connect -> query($query);
 		}
 
 		public function moveDown($id, $prior) {
-			if ($prior == 0) {
-				$query = "UPDATE tasks SET priority=$id WHERE id=$id;";
-
-			}else {
-				$query = "update tasks set priority=if(priority=$prior,$prior+1,$prior) where priority in ($prior, $prior+1);";
-			}
+			$query = "update tasks set priority=if(priority=$prior,$prior+1,$prior) where priority in ($prior, $prior+1);";
 			$this -> connect -> query($query);
 
 		}
