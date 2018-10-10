@@ -19,17 +19,19 @@
 		public function sign_in() {
 			$password = $_POST['password'];
 			$login = $_POST['login'];
-			$data = $this -> users_model() -> sign_in($login, $password);
-
-			if ($data) {
-				$_SESSION['is_logined'] = 1;
-				$_SESSION['user_id'] = $data;
+			if ($login && $password) {
+				$data = $this -> users_model() -> sign_in($login, $password);
+				if ($data) {
+					$_SESSION['is_logined'] = 1;
+					$_SESSION['user_id'] = $data;
+				}
 			}
 			$this -> view -> redirect('http://todolist.ruby/');
 		}
 
 		public function sign_out() {
 			$_SESSION['is_logined'] = 0;
+			$_SESSION['user_id'] = null;
 			$this -> view -> redirect('http://todolist.ruby/');
 		}
 
@@ -43,11 +45,11 @@
 			$pass_confirm = $_POST['password_2'];
 			$email = $_POST['email'];
 			$check_email = strpos("$email",'@');
-
 			if ($password == $pass_confirm && $check_email) {
 				$data = $this -> users_model() -> sign_up($password, $login, $email);
 				if ($data) {
 					$_SESSION['is_logined'] = 1;
+					$_SESSION['user_id'] = $data;
 				}
 			}
 			$this -> view -> redirect('http://todolist.ruby/');

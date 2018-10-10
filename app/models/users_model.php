@@ -3,16 +3,17 @@
 	class UsersModel extends Model {
 
 		public function sign_in($login, $password) {
-			$query = "SELECT * FROM `users` WHERE login='$login' AND password='$password';";
-			$result = $this -> connect -> query($query);
-			$clients = [];
-			while ($row = mysqli_fetch_assoc($result)) {
-				array_push($clients, $row);
-			}
-			foreach ($clients as $user) {
-			}
-			$user_id = $user['id'];
-			return $user_id;
+
+				$query = "SELECT * FROM `users` WHERE login='$login' AND password='$password';";
+				$result = $this -> connect -> query($query);
+				$clients = [];
+				while ($row = mysqli_fetch_assoc($result)) {
+					array_push($clients, $row);
+				}
+				foreach ($clients as $user) {
+				}
+				$user_id = $user['id'];
+				return $user_id;
 		}
 
 		public function sign_up($password, $login, $email) {
@@ -33,9 +34,9 @@
 					$answer = 0;
 				}else {
 					$query = "INSERT INTO `users` VALUES(null, '$login', '$password', '$email');";
-					$this -> connect -> query($query);
-					$answer = 1;
 				}
-			return $answer;
+			$this -> connect -> query($query);
+			$user_id = $this -> sign_in( $login, $password);
+			return $user_id;
 		}
 	}
