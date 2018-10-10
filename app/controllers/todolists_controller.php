@@ -32,4 +32,9 @@
 			$this -> todolist_model() -> update($id, $title);
 			$this -> view -> redirect('http://todolist.ruby/todolists/index');
 		}
+
+		public function sign_out() {
+			$_SESSION['is_logined'] = 0;
+			$this -> view -> redirect('http://todolist.ruby/');
+		}
 	}

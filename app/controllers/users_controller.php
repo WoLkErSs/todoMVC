@@ -27,6 +27,10 @@
 			$this -> view -> redirect('http://todolist.ruby/');
 		}
 
+		public function registration() {
+			$this -> view -> render('sign_up');
+		}
+
 		public function sign_up() {
 			$login = $_POST['login'];
 			$password = $_POST['password_1'];
@@ -35,9 +39,11 @@
 			$check_email = strpos("$email",'@');
 
 			if ($password == $pass_confirm && $check_email) {
-				$this -> users_model() -> sign_up($password, $login, $email);
+				$data = $this -> users_model() -> sign_up($password, $login, $email);
+				if ($data) {
+					$_SESSION['is_logined'] = 1;
+				}
 			}
 			$this -> view -> redirect('http://todolist.ruby/');
 		}
-
 	}

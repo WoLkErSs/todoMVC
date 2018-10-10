@@ -14,7 +14,7 @@
 			<input type="submit" name="register" class="btn btn-primary" value="Sign in">
 		</div>
 		<span>
-			Not a member? <a href="sign_reg.php">Sign up</a>
+			Not a member? <a href="registration">Sign up</a>
 		</span>
 	</form>
 	<footer class="m-0 pt80 text-center">@ Ruby Garage</footer>

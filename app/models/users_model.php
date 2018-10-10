@@ -16,21 +16,19 @@
 			while ($row = mysqli_fetch_assoc($result)) {
 				array_push($users, $row);
 			}
-			if (true) {
-				foreach ($users as $user) {
-					$user_password = $user['password'];
-					$user_login = $user['login'];
-					$user_email = $user['email'];
-					array_push($user_data, $user);
-					if($user_password == $password || $user_login == $login || $user_email == $email) {
-						$answer = 'Memeber already exists.';
-					}
-				}
-			}else {
-				$query = "INSERT INTO `users` VALUES(null, '$login', '$password', '$email');";
-				$this -> connect -> query($query);
-				$answer = 'Your registration successful done';
+			foreach ($users as $user) {
+				$user_password = $user['password'];
+				$user_login = $user['login'];
+				$user_email = $user['email'];
+				array_push($user_data, $user);
 			}
+				if($user_password == $password || $user_login == $login || $user_email == $email) {
+					$answer = 0;
+				}else {
+					$query = "INSERT INTO `users` VALUES(null, '$login', '$password', '$email');";
+					$this -> connect -> query($query);
+					$answer = 1;
+				}
 			return $answer;
 		}
 	}
