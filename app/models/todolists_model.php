@@ -43,7 +43,7 @@
 			$query = "UPDATE `to_do_lists` SET name='$title' WHERE id=$id;";
 			$this -> connect -> query($query);
 		}
-
+/*
 		public function sign_in($login, $password) {
 			$query = "SELECT EXISTS (SELECT * FROM `users` WHERE login='$login' AND password='$password');";
 			$data = $this -> connect -> query($query);
@@ -75,6 +75,7 @@
 			}
 			return $answer;
 		}
+*/
 	}
 
 

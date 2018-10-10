@@ -9,7 +9,7 @@
 
 		public function index() {
 			if($_SESSION['is_logined'] == 0) {
-				$this -> view -> render('sign_in'); 
+				$this -> view -> redirect('http://todolist.ruby/users/index');
 			}else {
 				$data = $this -> todolist_model() -> all();
 				$this -> view -> render('all', ['todolists' => $data]); 
@@ -31,33 +31,5 @@
 			$title = $_POST['title'];
 			$this -> todolist_model() -> update($id, $title);
 			$this -> view -> redirect('http://todolist.ruby/todolists/index');
-		}
-
-		public function sign_in() {
-			$password = $_POST['password'];
-			$login = $_POST['login'];
-			$data = $this -> todolist_model() -> sign_in($login, $password);
-			if ($data) {
-				$_SESSION['is_logined'] = 1;
-			}
-			$this -> view -> redirect('http://todolist.ruby/');
-		}
-
-		public function sign_out() {
-			$_SESSION['is_logined'] = 0;
-			$this -> view -> redirect('http://todolist.ruby/');
-		}
-
-		public function sign_up() {
-			$login = $_POST['login'];
-			$password = $_POST['password_1'];
-			$pass_confirm = $_POST['password_2'];
-			$email = $_POST['email'];
-			$check_email = strpos("$email",'@');
-
-			if ($password == $pass_confirm && $check_email) {
-				$this -> todolist_model() -> sign_up($password, $login, $email);
-			}
-			$this -> view -> redirect('http://todolist.ruby/');
 		}
 	}
