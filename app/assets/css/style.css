@@ -30,6 +30,10 @@ h2 {
 	border: none;
 }
 
+form.todo_title.mt-10.b-none {
+    border: none;
+}
+
 .main_icon {
 	display: none;
 	float: right;
