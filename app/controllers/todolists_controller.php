@@ -1,12 +1,6 @@
 <?php 
 	session_start();
 	class TodolistsController extends Controller {
-
-		private function todolist_model() {
-			include_once ROOT_PATH . 'app/models/todolists_model.php';
-			return new TodolistsModel;
-		}
-
 		public function index() {
 			if($_SESSION['is_logined'] == 0) {
 				$this -> view -> redirect('http://todolist.ruby/users/index');
@@ -17,7 +11,7 @@
 		}
 
 		public function create() {
-			$this -> todolist_model() -> create();
+			$this -> todolist_model() -> create($_SESSION['user_id']);
 			$this -> view -> redirect('http://todolist.ruby/todolists/index');
 		}
 
@@ -36,5 +30,10 @@
 		public function sign_out() {
 			$_SESSION['is_logined'] = 0;
 			$this -> view -> redirect('http://todolist.ruby/');
+		}
+		
+		private function todolist_model() {
+			include_once ROOT_PATH . 'app/models/todolists_model.php';
+			return new TodolistsModel;
 		}
 	}

@@ -6,10 +6,8 @@
 				<div class=" col-xs-1  mt-10 glyphicon glyphicon-calendar">
 				</div>
 				<div class="par m-0 col-xs-8">
-					<div class="todo-title">
-					<?php echo $name;?>
-					</div>
-					<form action="update" method="post" hidden class="todo_title mt-10" style="border: none;">
+					<div class="todo-title"><?php echo $name;?></div>
+					<form action="update" method="post" hidden class="todo_title mt-10 b-none">
 						<input type="hidden" name="id" value='<?=$id?>'>
 						<input type="text" name="title">
 						<input type="submit" class="btn btn-success m-0 p-0 h-25 w-40" value="save">
@@ -46,8 +44,7 @@
 					$tasks_id = $task['id'];
 					$task_name = $task['task'];
 					$task_status = $task['status'];
-					$task_priority = $task['priority'];
-						
+					$task_priority = $task['priority'];	
 					include ROOT_PATH . 'app/views/todolists/tasks.php';
 				}
 			?>

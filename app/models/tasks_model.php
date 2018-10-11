@@ -1,10 +1,7 @@
 <?php
 	class TasksModel extends Model {
-		
-
 		public function new($new_task_name, $id) {
-			$query_0 = "SELECT MAX(priority) as `max` FROM tasks;";
-			$result = $this -> connect -> query($query_0);
+			$result = $this -> max_priority($id);
 			$max = [];
 			while ($row = mysqli_fetch_assoc($result)) {
 				array_push($max, $row);
@@ -20,11 +17,8 @@
 		}
 
 		public function change_status($id, $status) {
-			if ($status == 'on') {
-				$query = "UPDATE tasks SET status = true WHERE id = '$id';";
-				$this -> connect -> query($query);
-			}else {
-				$query = "UPDATE tasks SET status = false WHERE id = '$id';";
+			if ($new_status = $status == 'on' ? 'true' : 'false') {
+				$query = "UPDATE tasks SET status = $new_status WHERE id = '$id';";
 				$this -> connect -> query($query);
 			}
 		}
@@ -43,5 +37,11 @@
 			$query = "update tasks set priority=if(priority=$prior,$prior+1,$prior) where priority in ($prior, $prior+1);";
 			$this -> connect -> query($query);
 
+		}
+
+		private function max_priority($id) {
+			$query = "SELECT MAX(priority) as `max` FROM tasks WHERE todo_id=$id;";
+			$result = $this -> connect -> query($query);
+			return $result;
 		}
 	}
