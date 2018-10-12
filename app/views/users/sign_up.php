@@ -1,5 +1,4 @@
-<div class="col-xs-4"></div>
-<div class="col-xs-4">
+<div class="col-xs-4 col-sm-offset-4">
 	<h2 class="text-center">SIGN UP</h2>
 	<form action="sign_up" method="post">
 	    <div class="form-group">
@@ -27,6 +26,3 @@
 	</form>
 	<footer class="m-0 pt80 text-center">@ Ruby Garage</footer>
 </div>
-<div class="col-xs-4"></div>
-
-

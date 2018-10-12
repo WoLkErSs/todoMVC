@@ -6,7 +6,7 @@
 				<input type="checkbox" class="check_boxs sign" name="status">
 			<?php endif; ?>
 			<?php if ($task_status == 1): ?>
-				<input type="checkbox" checked class="check_boxs sign line_throuht" name='status'">
+				<input type="checkbox" checked class="check_boxs sign line_throught" name='status'>
 			<?php endif; ?>
 				
 		</form>

@@ -17,10 +17,10 @@
 		}
 
 		public function change_status($id, $status) {
-			if ($new_status = $status == 'on' ? 'true' : 'false') {
-				$query = "UPDATE tasks SET status = $new_status WHERE id = '$id';";
-				$this -> connect -> query($query);
-			}
+			$new_status = $status == 'on' ? 'true' : 'false';
+			$query = "UPDATE tasks SET status = $new_status WHERE id = '$id';";
+			$this -> connect -> query($query);
+			
 		}
 		
 		public function update($id, $name) {

@@ -5,8 +5,7 @@
 			if($_SESSION['is_logined'] == 0) {
 				$this -> view -> render('sign_in'); 
 			}else {
-				$data = $this -> users_model() -> all();
-				$this -> view -> render('all', ['users' => $data]); 
+				$this -> view -> render('/'); 
 			}
 		}
 

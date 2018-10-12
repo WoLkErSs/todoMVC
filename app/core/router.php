@@ -24,7 +24,7 @@
 					var_dump("{$this -> action_name}");
 					require "app/controllers/errors_controller.php";
 					$error = new ErrorsController;
-					$error -> error405();
+					$error -> error404();
 				}
 			}else {
 				require "app/controllers/errors_controller.php";

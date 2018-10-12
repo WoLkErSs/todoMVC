@@ -5,7 +5,7 @@
 			if($_SESSION['is_logined'] == 0) {
 				$this -> view -> redirect('http://todolist.ruby/users/index');
 			}else {
-				$data = $this -> todolist_model() -> all();
+				$data = $this -> todolist_model() -> all($_SESSION['user_id']);
 				$this -> view -> render('all', ['todolists' => $data]); 
 			}
 		}

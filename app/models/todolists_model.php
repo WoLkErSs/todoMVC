@@ -7,8 +7,7 @@
 			$this -> connect -> query($query);
 		}
 
-		public function all() {
-			$user_id = $_SESSION['user_id'];
+		public function all($user_id) {
 			$query = "SELECT * FROM to_do_lists WHERE user_id=$user_id;";
 			$result = $this -> connect -> query($query);
 			$todolists = [];
@@ -41,9 +40,5 @@
 				array_push($tasks_array, $row);
 			}
 			return $tasks_array;		
-		}
-		
+		}	
 	}
-
-
-

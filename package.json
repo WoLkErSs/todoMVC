@@ -1,0 +1,27 @@
+{
+  "name": "todolist.ruby",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "3": "^2.1.0",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.9.2",
+    "scss-compile": "^0.1.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WoLkErSs/todoMVC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WoLkErSs/todoMVC/issues"
+  },
+  "homepage": "https://github.com/WoLkErSs/todoMVC#readme"
+}
